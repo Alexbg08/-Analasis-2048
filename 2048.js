@@ -42,7 +42,7 @@ function actualizaTab (recuadro, num) {
     recuadro.classList.value = "";
     recuadro.classList.add("recuadro");
     if(num > 0) {
-        recuadro.innerText = num;
+        recuadro.innerText = num.toString();
         if(num <= 4096){
             recuadro.classList.add("x" + num.toString());  
         }else{
