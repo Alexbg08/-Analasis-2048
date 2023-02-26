@@ -141,7 +141,7 @@ function movArriba( ) {
 
 function  movAbajo() {
    for  (let c = 0; c < columnas; c++)  {
-       let  fila  =  [ tablero [ 0 ] [ c ] ,  tablero [ 1 ] [ c ] ,  tablero [ 2 ] [ c ] ,  tablero [ 3 ] [ c ] ] ;
+       let  fila  =  [tablero[0][c], tablero[1][c], tablero[2][c], tablero[3][c]];
        fila.reverse();
        fila = mover(fila);
        fila.reverse();
@@ -152,7 +152,7 @@ function  movAbajo() {
        for (let f =  0 ; f < filas; f++) {
            tablero [f][c] = fila[f];
            let  recuadro =  document.getElementById(f.toString() + "-" + c.toString());
-           let  num  =  tablero [ r ] [ c ] ;
+           let  num  =  tablero [f][c];
            actualizaTab(recuadro, num);
        }
    }
@@ -167,7 +167,7 @@ function  generaDos() {
        //busca filas y columnas aleatorias para colocar un 2 en
         let f =  Math.floor(Math.random() * filas);
         let c =  Math.floor(Math.random() * columnas);
-        if ( tablero [f][c] == 0) {
+        if (tablero[f][c] == 0) {
             tablero[f][c] = 2;
             let  recuadro = document.getElementById (f.toString() + "-" + c.toString());
             recuadro.innerText = "2";
