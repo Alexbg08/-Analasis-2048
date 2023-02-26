@@ -51,7 +51,7 @@ function actualizaTab (recuadro, num) {
     }
 }
 
-document.addEventListener ( "teclado" ,  ( e )  => { ////////
+document.addEventListener ('keyup', (e) => { ////////
     if (e.codigo == "FlechaIzquierda") { //////
         movIzquierda();
         generaDos(); 
