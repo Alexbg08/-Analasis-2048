@@ -4,26 +4,36 @@
        <meta charset="UTF-8">
        <meta name="viewport" content="width-device-width, initial scale>1.0">
        <title>2048</title>
-       <link rel="stylesheet" href="forma.css">
-       <script src="funciones.js"></script> 
+       <link rel="stylesheet" href="estilos.css">
+       <script src="https://kit.fontawesome.com/d89f4a7b58.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
       <div class="encabezados">
          <h1 class="titulo">2048</h1> 
-         <div class="puntajes-contenedor">
+         <div class="puntajes_contenedor">
             <div class="puntaje">0</div>
             <div class="mejor">0</div>
          </div>
       </div>
+      <div class="botones">
+         <a class="resumen" id="resumen">RESUMEN</a>
+         <a class="reinicio">REINICIAR</a>
+      </div>
+      <div id="tablero"></div>
 
-      
-       
-       
-       <div id="tablero"></div>
+      <div class="overlay" id="overlay">
+         <div class="popup" id="popup">
+            <a href="" id="btn_cerrar" class="btn_cerrar"><i class="fa-regular fa-circle-xmark"></i></a>
+            <h2>Resumen</h2>
+            <div class="total_piezas">0</div>
+            <div class="total_movimientos">0</div>
+            <div class="total_tiempo">0</div>
+         </div>
+            
+      </div>
 
+      <script src="funciones.js"></script>
     </body>
-
-
-
+     
 </html>
