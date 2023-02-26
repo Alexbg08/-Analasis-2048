@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: url(https://cdn.custom-cursor.com/db/7599/32/stain-of-paint-pointer.png), pointer!important;
+    background-image: url(https://cdn.shopify.com/s/files/1/0108/8225/2863/products/shopify_59ecb8cc-498b-4171-8368-6ab78e2f36b1.jpg?v=1669844825);   
+}
+
+.encabezados, .titulo{
+    display: flex;
+    font-size: 60px;
+    font-weight: bold;
+    margin-right: 35px;
+    color: rgb(141, 36, 36);
+    justify-content: center;
+}
+
+.puntaje, .mejor{
+    height: 25px;
+    color: white;
+    font-size: 25px;
+    margin-top: 40px;
+    line-height: 50px;
+    font-weight: 700px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 15px 25px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    background: rgba(175, 97, 97, 0.772);
+}
+
+.puntaje::after{
+    content: "Puntaje";
+}
+
+.mejor::after{
+    content: "Mejor";
+}
+
+.puntaje::after, .mejor::after{
+    left: 0;
+    top: -10px;
+    width: 100%;
+    font-size: 12px;
+    position: absolute;
+}
+
+.reinicio, .resumen{
+    padding: 10px;
+    bottom: 28PX;
+    display: flex;
+    color: white;
+    border: 1px solid;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 45px;
+    border-radius: 50px;
+    display: inline-block;
+    background-color: rgb(141, 36, 36);
+}
+
+.reinicio:hover, .resumen:hover{
+    background-color: rgb(179, 97, 97);
+    color: white;
+}
+
+
+#tablero {
+    width:  400px;
+    height: 400px;
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    background-color: rgba(175, 97, 97, 0.772);
+    border: 8px solid rgba(224, 156, 156, 0.738);
+}
+
+.cuadro {
+    width:  88px;
+    height: 88px;
+    display: flex;
+    font-size: 40px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    border: 6px solid rgba(224, 156, 156, 0.738);
+}
+
+.n2 {
+    background-color: rgba(255, 209, 209, 0.738);
+    color: rgb(243, 243, 243);
+}
+
+.n4 {
+    background-color: rgba(255, 166, 166, 0.738);
+    color: rgb(243, 243, 243);
+}
+
+.n8 {
+    background-color: rgba(246, 122, 122, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n16 {
+    background-color: rgba(255, 115, 115, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n32 {
+    background-color: rgba(255, 104, 104, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n64 {
+    background-color: rgba(240, 88, 88, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n126 {
+    background-color: rgba(216, 75, 75, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n256 {
+    background-color: rgba(210, 62, 62, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n512 {
+    background-color: rgba(207, 43, 43, 0.896);
+    color: rgb(255, 255, 255);
+}
+
+.n1024 {
+    background-color: rgba(180, 37, 37, 0.935);
+    color: rgb(255, 255, 255);
+}
+
+.n2048 {
+    background-color: rgba(154, 27, 27, 0.935);
+    color: rgb(255, 255, 255);
+}
+
+.n4096 {
+    background-color: rgba(120, 21, 21, 0.935);
+    color: rgb(255, 255, 255);
+}
+
+.n8192 {
+    background-color: rgb(104, 21, 21);
+    color: rgb(255, 255, 255);
+}
