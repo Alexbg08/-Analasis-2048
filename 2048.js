@@ -5,9 +5,9 @@ var filas = 4;
 var columnas = 4;
 
 window.onload = function() {
-   Juego();
+   setGame();
 }
-function Juego() {
+function setGame() {
    // tablero = [
    // [2, 2, 2, 2],
    // [2, 2, 2, 2],
