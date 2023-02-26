@@ -62,7 +62,7 @@ document.addEventListener ( "teclado" ,  ( e )  => { ////////
     }
     else if(e.codigo == "FlechaArriba") {   
        movArriba();
-       egeneraDos();
+       generaDos();
 
     }
     else if(e.codigo == "FlechaBaja") {
