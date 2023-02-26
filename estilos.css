@@ -8,7 +8,9 @@ body {
     cursor: url(https://cdn.custom-cursor.com/db/7599/32/stain-of-paint-pointer.png), pointer!important;
     background-image: url(https://cdn.shopify.com/s/files/1/0108/8225/2863/products/shopify_59ecb8cc-498b-4171-8368-6ab78e2f36b1.jpg?v=1669844825);   
 }
-
+  /*-------------*/
+ /* Titulo 2048 */
+/*-------------*/ 
 .encabezados, .titulo{
     display: flex;
     font-size: 60px;
@@ -18,14 +20,15 @@ body {
     justify-content: center;
 }
 
+  /*---------------------------------*/
+ /* Contenedores de puntaje y mejor */
+/*---------------------------------*/ 
 .puntaje, .mejor{
     height: 25px;
     color: white;
     font-size: 25px;
     margin-top: 40px;
     line-height: 50px;
-    font-weight: 700px;
-    text-align: center;
     border-radius: 4px;
     padding: 15px 25px;
     position: relative;
@@ -50,6 +53,9 @@ body {
     position: absolute;
 }
 
+  /*-------------------------------*/
+ /* Botones de reinicio y resumen */
+/*-------------------------------*/ 
 .reinicio, .resumen{
     padding: 10px;
     bottom: 28PX;
@@ -65,11 +71,103 @@ body {
 }
 
 .reinicio:hover, .resumen:hover{
-    background-color: rgb(179, 97, 97);
     color: white;
+    background-color: rgb(179, 97, 97); 
 }
 
+  /*-----------------*/
+ /* Ventana Resumen */
+/*-----------------*/
 
+.overlay.active{
+    visibility: visible;
+}
+
+.overlay{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    position: fixed;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    background: rgb(0,0,0,.3);   
+}
+
+.popup{
+    opacity: 0;
+    width: 600px;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 3px;
+    text-align: center;
+    transform: scale(0.7);
+    transition: .3s ease all;
+    box-shadow: 0px 0px 5px 0px rgb(0,0,0,0.3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url(https://cdn.shopify.com/s/files/1/0108/8225/2863/products/shopify_59ecb8cc-498b-4171-8368-6ab78e2f36b1.jpg?v=1669844825);   
+}
+
+.popup .btn_cerrar{
+    display: block;
+    font-size: 16px;
+    color: #888888;
+    line-height: 16px;
+    text-align: right;
+    transition: .3s ease all;
+}
+
+.popup .btn_cerrar:hover{
+    color: #000;
+}
+
+h2{
+    color: rgb(141, 36, 36);
+}
+
+.total_piezas, .total_movimientos, .total_tiempo{
+    height: 25px;
+    padding: 40px;
+    color: white;
+    font-size: 25px;
+    line-height: 50px;
+    margin-left: 15px;
+    border-radius: 4px;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    background: rgba(175, 97, 97, 0.772);    
+}
+
+.total_piezas::after{
+    content: "Total Piezas";
+}
+
+.total_tiempo::after{
+    content: "Tiempo Total";
+}
+
+.total_movimientos::after{
+    content: "Movimientos";
+}
+
+.total_piezas::after, .total_movimientos::after, .total_tiempo::after{
+    left: 0;
+    top: -10px;
+    width: 100%;
+    font-size: 11px;
+    position: absolute;
+}
+  /*-----------------*/
+ /* Animacion Popup */
+/*-----------------*/
+.popup.active{opacity: 1; transform: scale(1);}
+
+  /*----------*/
+ /* Tablero */
+/*--------*/
 #tablero {
     width:  400px;
     height: 400px;
@@ -91,6 +189,9 @@ body {
     border: 6px solid rgba(224, 156, 156, 0.738);
 }
 
+  /*----------------------------*/
+ /* Cuadros o piezas del juego */
+/*----------------------------*/
 .n2 {
     background-color: rgba(255, 209, 209, 0.738);
     color: rgb(243, 243, 243);

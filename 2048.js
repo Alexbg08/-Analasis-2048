@@ -1,8 +1,21 @@
-
 var tablero;
 var puntuacion = 0;
 var filas = 4;
 var columnas = 4;
+var btn_Resumen = document.getElementById('resumen'),
+    overlay = document.getElementById('overlay'),
+    popup = document.getElementById('popup'),
+    btn_cerrar = document.getElementById('btn_cerrar');
+
+btn_Resumen.addEventListener('click', function(){
+    overlay.classList.add('active');
+    popup.classList.add('active');
+});
+
+btn_cerrar.addEventListener('click', function(){
+    overlay.classList.remove('active')
+    popup.classList.remove('active');
+});
 
 window.onload = function() {
    setGame();
@@ -93,6 +106,7 @@ function mover(fila){
     }  //[4, 2, 0, 0]
     return fila;
 }
+
 ///////////////////////////////////////////////////////////////
 
 function  movIzquierda() {
