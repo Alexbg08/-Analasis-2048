@@ -19,7 +19,7 @@ btn_cerrar.addEventListener('click', function(){
     popup.classList.remove('active');
 });
 
-ganar_Perder.addEventListener()
+//ganar_Perder.addEventListener()
 
 window.onload = function() {
    setGame();
