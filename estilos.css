@@ -67,6 +67,7 @@ body {
     margin-right: 45px;
     border-radius: 50px;
     display: inline-block;
+    text-decoration: none;
     background-color: rgb(141, 36, 36);
 }
 
@@ -178,7 +179,7 @@ h2{
     border: 8px solid rgba(224, 156, 156, 0.738);
 }
 
-.cuadro {
+.recuadro {
     width:  88px;
     height: 88px;
     display: flex;

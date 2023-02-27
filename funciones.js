@@ -1,11 +1,12 @@
 var tablero;
-var puntuacion = 0;
+var puntaje = 0;
 var filas = 4;
 var columnas = 4;
 var btn_Resumen = document.getElementById('resumen'),
     overlay = document.getElementById('overlay'),
     popup = document.getElementById('popup'),
     btn_cerrar = document.getElementById('btn_cerrar');
+    btn_reiniciar = document.getElementById('btn_reiniciar');
 
 btn_Resumen.addEventListener('click', function(){
     overlay.classList.add('active');
@@ -50,6 +51,17 @@ function setGame() {
 
 }
 
+function checkForWin(){
+    for (let f = 0; f < filas; f++){
+        for(let c = 0; c < columnas; c++){
+            if(tablero[f][c].innerText  == 2048){
+                resultDisplay.innerText == 'YOU WIN!'
+                document.getElementById('btn_reiniciar');
+            }
+        }
+    }
+}
+
 function actualizaTab (recuadro, num) {
     recuadro.innerText = "";
     recuadro.classList.value = "";
@@ -57,36 +69,36 @@ function actualizaTab (recuadro, num) {
     if(num > 0) {
         recuadro.innerText = num.toString();
         if(num <= 4096){
-            recuadro.classList.add("x" + num.toString());  
+            recuadro.classList.add("n" + num.toString());  
         }else{
-            recuadro.classList.add("x8192"); ///fijarse en el css
+            recuadro.classList.add("n8192"); ///fijarse en el css
         }
     }
 }
 
-document.addEventListener ('keyup', (e) => { ////////
-    if (e.codigo == "FlechaIzquierda") { //////
+document.addEventListener ('keyup', (e) => { 
+    if (e.code == "ArrowLeft") { 
         movIzquierda();
-        generaDos(); 
+        generaDos();
     }
-    else if ( e.codigo == "FlechaDerecha") {   
+    else if ( e.code == "ArrowRight") {   
         movDerecha();
         generaDos();
     }
-    else if(e.codigo == "FlechaArriba") {   
+    else if(e.code == "ArrowUp") {   
        movArriba();
        generaDos();
-
     }
-    else if(e.codigo == "FlechaBaja") {
+    else if(e.code == "ArrowDown") {
        movAbajo();
        generaDos();
     }
-    document.getElementById ("puntuacion").innerText = puntuacion;
+    document.getElementById ("puntaje").innerText = puntaje;
+    
 } )
 
 function filterZero (fila){
-    return fila.filtro(num => num != 0);  // crea una nueva matriz de todos los números! = 0
+    return fila.filter(num => num != 0);  // crea una nueva matriz de todos los números! = 0
 }
 
 function mover(fila){
@@ -96,7 +108,7 @@ function mover(fila){
        if  ( fila [i] == fila[i + 1]) {
            fila [i] *= 2;
            fila [i + 1] = 0;
-           puntuacion +=  fila [i] ;
+           puntaje +=  fila [i] ;
        }
    }  //[4, 0, 2]
    fila  =  filterZero(fila);  //[4, 2]
@@ -185,7 +197,7 @@ function  generaDos() {
             tablero[f][c] = 2;
             let  recuadro = document.getElementById (f.toString() + "-" + c.toString());
             recuadro.innerText = "2";
-            recuadro.classList.add("x2");
+            recuadro.classList.add("n2");
             existente = true;
        }
    }
