@@ -5,8 +5,9 @@ var columnas = 4;
 var btn_Resumen = document.getElementById('resumen'),
     overlay = document.getElementById('overlay'),
     popup = document.getElementById('popup'),
-    btn_cerrar = document.getElementById('btn_cerrar');
-    btn_reiniciar = document.getElementById('btn_reiniciar');
+    btn_cerrar = document.getElementById('btn_cerrar'),
+    btn_reiniciar = document.getElementById('btn_reiniciar'),
+    ganar_Perder = document.getElementById('ganar_Perder');
 
 btn_Resumen.addEventListener('click', function(){
     overlay.classList.add('active');
@@ -17,6 +18,8 @@ btn_cerrar.addEventListener('click', function(){
     overlay.classList.remove('active')
     popup.classList.remove('active');
 });
+
+ganar_Perder.addEventListener()
 
 window.onload = function() {
    setGame();
@@ -30,7 +33,7 @@ function setGame() {
    // ];
 
    tablero = [
-       [0, 0, 0, 0],
+       [0, 0, 1024, 1024],
        [0, 0, 0, 0],
        [0, 0, 0, 0],
        [0, 0, 0, 0]
@@ -50,13 +53,12 @@ function setGame() {
     generaDos();
 
 }
-
+//Revisa el tablero para saber quien gano
 function checkForWin(){
     for (let f = 0; f < filas; f++){
         for(let c = 0; c < columnas; c++){
-            if(tablero[f][c].innerText  == 2048){
-                resultDisplay.innerText == 'YOU WIN!'
-                document.getElementById('btn_reiniciar');
+            if(tablero[f][c] == 2048){
+                btn_reiniciar
             }
         }
     }
@@ -94,7 +96,7 @@ document.addEventListener ('keyup', (e) => {
        generaDos();
     }
     document.getElementById ("puntaje").innerText = puntaje;
-    
+    checkForWin();    
 } )
 
 function filterZero (fila){
