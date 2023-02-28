@@ -4,12 +4,17 @@ var filas = 4;
 var columnas = 4;
 var contadorPiezas = 0;
 var cont_Jugadas = 0;
+var tiempo = 0;
+var minutos = 0;
+var segundos = 0;
+var mejor = 0;
 var btn_Resumen = document.getElementById('resumen'),
     overlay = document.getElementById('overlay'),
     popup = document.getElementById('popup'),
     btn_cerrar = document.getElementById('btn_cerrar'),
     btn_reiniciar = document.getElementById('btn_reiniciar'),
-    ganar_Perder = document.getElementById('ganar_Perder');
+    ganar_Perder = document.getElementById('ganar_Perder'),
+    contador = document.getElementById('tiempo');
 
 btn_Resumen.addEventListener('click', function(){
     overlay.classList.add('active');
@@ -21,18 +26,13 @@ btn_cerrar.addEventListener('click', function(){
     popup.classList.remove('active');
 });
 
-//ganar_Perder.addEventListener()
-
 window.onload = function() {
-   setGame();
+    setGame();
 }
+
+setInterval(actualizarTiempo, 1000);
+
 function setGame() {
-   // tablero = [
-   // [2, 2, 2, 2],
-   // [2, 2, 2, 2],
-   // [4, 4, 8, 8],
-   // [4, 4, 8, 8]
-   // ];
 
    tablero = [
        [0, 0, 1024, 1024],
@@ -53,16 +53,30 @@ function setGame() {
    //crea 2 valores aleatorios para comenzar el juego
     generaDos();
     generaDos();
-    //cantidadFichas();
+}
+
+function resetGame(){
+    for (let f = 0; f < filas; f ++) {
+        for (let c = 0; c < columnas; c ++) {
+            tablero[f][c] = 0;
+        }
+    }
+    generaDos();
+    document.getElementById("ganar").style.visibility = "visible"; 
+    document.getElementById("ganar_Perder").style.visibility = "visible"; 
+    if(puntaje > mejor){
+        mejor = puntaje;
+        document.getElementById ("mejor").innerText = mejor;
+    }   
 
 }
+
 //Revisa el tablero para saber quien gano
 function checkForWin(){
     for (let f = 0; f < filas; f++){
         for(let c = 0; c < columnas; c++){
             if(tablero[f][c] == 2048){
-                console.log("GANASTE PUTO");
-                setGame();
+                resetGame();
             }
         }
     }
@@ -238,4 +252,16 @@ function cantidadFichas(){
             }
         }
     }
+}
+
+function actualizarTiempo(){
+    tiempo++; 
+
+    minutos = Math.floor(tiempo / 60);
+    segundos = tiempo % 60;
+
+    var minutosTexto = minutos < 10 ? "0" + minutos : minutos;
+    var segundosTexto = segundos < 10 ? "0" + segundos : segundos;
+    
+    contador.innerText = minutosTexto + ":" + segundosTexto;
 }
