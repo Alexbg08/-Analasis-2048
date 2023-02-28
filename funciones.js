@@ -2,6 +2,8 @@ var tablero;
 var puntaje = 0;
 var filas = 4;
 var columnas = 4;
+var contadorPiezas = 0;
+var cont_Jugadas = 0;
 var btn_Resumen = document.getElementById('resumen'),
     overlay = document.getElementById('overlay'),
     popup = document.getElementById('popup'),
@@ -51,6 +53,7 @@ function setGame() {
    //crea 2 valores aleatorios para comenzar el juego
     generaDos();
     generaDos();
+    //cantidadFichas();
 
 }
 //Revisa el tablero para saber quien gano
@@ -58,7 +61,8 @@ function checkForWin(){
     for (let f = 0; f < filas; f++){
         for(let c = 0; c < columnas; c++){
             if(tablero[f][c] == 2048){
-                btn_reiniciar
+                console.log("GANASTE PUTO");
+                setGame();
             }
         }
     }
@@ -82,20 +86,27 @@ document.addEventListener ('keyup', (e) => {
     if (e.code == "ArrowLeft") { 
         movIzquierda();
         generaDos();
+        cont_Jugadas++;
     }
     else if ( e.code == "ArrowRight") {   
         movDerecha();
         generaDos();
+        cont_Jugadas++;
     }
     else if(e.code == "ArrowUp") {   
        movArriba();
        generaDos();
+       cont_Jugadas++;
     }
     else if(e.code == "ArrowDown") {
        movAbajo();
        generaDos();
+       cont_Jugadas++;
     }
+    cantidadFichas();
     document.getElementById ("puntaje").innerText = puntaje;
+    document.getElementById ("total_movimientos").innerText = cont_Jugadas;
+    document.getElementById ("total_piezas").innerText = contadorPiezas;
     checkForWin();    
 } )
 
@@ -206,7 +217,7 @@ function  generaDos() {
 }
 
 function recuadroVacio() {
-    let contador =  0 ; //////////////////
+    let contador =  0 ; 
     for (let f = 0; f < filas; f++) {
         for (let c = 0; c < columnas; c++) {
             if (tablero [f][c] == 0) {  //al menos un cero en el tablero
@@ -215,4 +226,16 @@ function recuadroVacio() {
        }
    }
    return false;
+}
+
+//arreglarlo
+function cantidadFichas(){
+    contadorPiezas = 0;
+    for (let f = 0; f < filas; f ++) {
+        for (let c = 0; c < columnas; c ++) {
+            if(tablero[f][c] != 0){
+                contadorPiezas ++;
+            }
+        }
+    }
 }
