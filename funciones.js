@@ -8,6 +8,7 @@ var tiempo = 0;
 var minutos = 0;
 var segundos = 0;
 var mejor = 0;
+var total_casillas = 0;
 var btn_Resumen = document.getElementById('resumen'),
     overlay = document.getElementById('overlay'),
     popup = document.getElementById('popup'),
@@ -35,7 +36,7 @@ setInterval(actualizarTiempo, 1000);
 function setGame() {
 
    tablero = [
-       [0, 0, 1024, 1024],
+       [0, 0, 0, 0],
        [0, 0, 0, 0],
        [0, 0, 0, 0],
        [0, 0, 0, 0]
@@ -55,12 +56,8 @@ function setGame() {
     generaDos();
 }
 
+
 function resetGame(){
-    for (let f = 0; f < filas; f ++) {
-        for (let c = 0; c < columnas; c ++) {
-            tablero[f][c] = 0;
-        }
-    }
     generaDos();
     document.getElementById("ganar").style.visibility = "visible"; 
     document.getElementById("ganar_Perder").style.visibility = "visible"; 
